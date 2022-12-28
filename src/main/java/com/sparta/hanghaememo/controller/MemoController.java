@@ -2,6 +2,7 @@ package com.sparta.hanghaememo.controller;
 
 
 import com.sparta.hanghaememo.dto.MemoRequestDto;
+import com.sparta.hanghaememo.dto.NewDto;
 import com.sparta.hanghaememo.entity.Memo;
 import com.sparta.hanghaememo.service.MemoService;
 import lombok.RequiredArgsConstructor;
@@ -22,22 +23,22 @@ public class MemoController {
     }
 
     @PostMapping("/api/memos")
-    public Memo createMemo(@RequestBody MemoRequestDto requestDto) {
+    public NewDto createMemo(@RequestBody MemoRequestDto requestDto) {
         return memoService.createMemo(requestDto);
     }
 
     @GetMapping("/api/memos")
-    public List<Memo> getMemos() {
+    public List<NewDto> getMemos() {
         return memoService.getMemos();
     }
 
     @GetMapping("/api/memos/{id}")
-    public Memo getMemo(@PathVariable Long id) {
+    public NewDto getMemo(@PathVariable Long id) {
         return memoService.getMemo(id);
     }
 
     @PutMapping("/api/memos/{id}")
-    public Memo updateMemo(@PathVariable Long id, @RequestBody MemoRequestDto requestDto) {
+    public NewDto updateMemo(@PathVariable Long id, @RequestBody MemoRequestDto requestDto) {
         return memoService.update(id, requestDto);
     }
 
